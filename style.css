@@ -1,0 +1,270 @@
+:root {
+    --cyan:  hsl(186, 34%, 60%);
+    --soft-red: hsl(10, 79%, 65%);
+    --dark-brown: hsl(25, 47%, 15%);
+    --medium-brown: hsl(28, 10%, 53%);
+    --cream: hsl(27, 66%, 92%);
+    --pale-orange: hsl(33, 100%, 98%);
+
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+
+    background-color: var(--cream);
+    font-family: 'DM Sans', sans-serif;
+}
+
+/* Just ignore this snippet its for implementing dark mode feature! */
+
+/* .toggle-btn {
+    position: relative;
+    height: 20px;
+    width: 40px;
+    border: 1px solid black;
+    border-radius: 35px;
+    top: 5%;
+
+    background: black;
+    display: flex;
+
+    align-items: center;
+}
+
+.circle {
+    position: absolute;
+
+    
+    border-radius: 50%;
+    background: white;
+    width: 15px;
+    aspect-ratio: 1;
+
+    left: 2px;
+    bottom: 2px;
+
+    transition: all 100ms ease-in-out;
+} */
+
+p {
+    margin: 0;
+}
+
+.wrapper {
+    min-width: 500px;
+    height: 600px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+
+    background: transparent;
+}
+
+.balance-info {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em 2em ;
+
+    height: 120px;
+
+    border-radius: 18px;
+
+    background-color: var(--soft-red);
+}
+
+.my-balance-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    
+}
+
+.logo {
+    width: 70px;
+}
+
+.white {
+    color: var(--pale-orange);
+}
+
+.bold {
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.card {
+    background-color: var(--pale-orange);
+
+    height: calc(100% - 100px);
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+
+    border-radius: 18px;
+
+    padding: 2em;
+
+}
+
+.title {
+    font-size: 1.9em;
+    color: var(--dark-brown);
+}
+
+.expenditure-graph {
+    flex: 1;
+
+    display: flex;
+    
+    align-items: flex-end;
+    text-align: center;
+
+    gap: 1em;
+}
+.bar-container {
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    height: 100%;
+    gap: .5em;
+}
+
+.bar {
+    background: var(--soft-red);   
+
+    position: relative;
+    border-radius: 5px;
+    animation: spread 700ms ease-in forwards;
+
+    transition-delay: 1000ms;
+    transition-property: background;
+    cursor: pointer;
+}
+
+.bar[data-tallest='true']{
+    transition-delay: 1000ms ;
+
+    background-color: var(--cyan);
+}
+
+/* .tallest-bar {
+    background: var(--cyan);
+} */
+
+@keyframes spread {
+    0% {
+        height: 0%;
+    }   
+}
+
+.tooltip {
+    background: var(--dark-brown);
+
+    width: 100%;
+    padding: .5em;
+
+    transform: scale(1.1);
+    
+    border-radius: 2px;
+    
+    font-size: .7em;
+    font-weight: bold;
+    color: var(--pale-orange);
+    
+    /* Positioning the element */
+    position: absolute;
+    top: -35px;
+    left: 0;
+
+    visibility: hidden;
+    opacity: 0;
+
+    transition: opacity 200ms ease-in;
+}
+
+.bar:hover .tooltip{
+    visibility: visible;
+    opacity: 1;
+}
+
+.day-of-week {
+    color: var(--medium-brown);
+}
+
+
+.divider {
+    height: 2px;
+    background: var(--cream);
+    margin-block: 1em;
+}
+
+
+.total-expenditure {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.total-expenditure > span {
+    display: flex;
+    flex-direction: column;
+}
+
+.light {
+    color: var(--medium-brown);
+    font-size: 1em;
+}
+
+.dark {
+    color: var(--dark-brown);
+    font-weight: 700;
+}
+
+.dark.big {
+    font-size: 2.5em;
+}
+
+.dark.shifted {
+    margin-left: auto;
+}
+
+@media screen and (max-width: 510px) {
+    .wrapper {
+        min-width: 400px;
+    }
+
+    .title {
+        font-size: 1.5em;
+    }
+    
+    .bold {
+        font-size: 1.8em;
+    }
+
+    .dark.big {
+        font-size: 2em;
+    }
+
+    .light {
+        font-size: .8em;
+    }
+
+    .tooltip {
+        font-size: .5em;
+        visibility: visible;
+        opacity: 1;
+    }
+}
