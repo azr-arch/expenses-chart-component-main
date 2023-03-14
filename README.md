@@ -15,5 +15,6 @@ Thanks for checking out this front-end coding challenge.
 Your challenge is to build out this bar chart component and get it looking as close to the design as possible.
 
 ## Live 
+https://azr-arch.github.io/expenses-chart-component-main/
 
 
